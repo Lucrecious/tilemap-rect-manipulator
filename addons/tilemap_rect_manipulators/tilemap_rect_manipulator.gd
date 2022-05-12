@@ -49,18 +49,11 @@ func _enter_tree() -> void:
 	
 	connect('id_changed', self, '_on_id_changed')
 	connect('tilemap_rect_changed', self, '_on_tilemap_rect_changed')
-	
-	if not Engine.editor_hint:
-		return
-	
-	_update_tile_manipulate_stack(_tilemap, get_tilemap_rect())
 
 func _exit_tree() -> void:
 	if not get_parent() is TileMap:
 		return
 		
-	call_deferred('_update_tile_manipulate_stack', _tilemap, get_tilemap_rect())
-	
 	_tilemap = null
 	
 	disconnect('id_changed', self, '_on_id_changed')

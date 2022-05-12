@@ -5,8 +5,7 @@ signal id_changed()
 signal tilemap_rect_changed()
 
 func _init() -> void:
-	texture = preload('res://addons/tilemap_rect_manipulators/pixel.png')
-	scale = Vector2.ONE * 64.0
+	texture = preload('res://addons/tilemap_rect_manipulators/tmp.png')
 	self_modulate = Color.transparent
 	centered = false
 	set_notify_local_transform(true)
@@ -36,7 +35,7 @@ func get_tilemap_rect() -> Rect2:
 		return Rect2()
 	
 	var rect_position := _tilemap.world_to_map(position + Vector2.ONE)
-	var rect_size := _tilemap.world_to_map(position + scale - Vector2.ONE) - rect_position
+	var rect_size := _tilemap.world_to_map(position + (texture.get_size() * scale) - Vector2.ONE) - rect_position
 	
 	return Rect2(rect_position, rect_size)
 
@@ -113,7 +112,7 @@ func _get_all_intersecting_manipulator_indices_recursive(tilemap: TileMap, start
 			if child.get_index() in manipulators:
 				continue
 			
-			if not child.get_tilemap_rect().intersects(rect, true):
+			if not child.get_tilemap_rect().intersects(rect, false):
 				continue
 			
 			manipulators[child.get_index()] = true

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixel.png-f9b3b2dcbe71c02dd006de2c58715b4e.stex"
+path="res://.import/tmp.png-771aafab82a103ec00a0796720e2fda3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/tilemap_rect_manipulators/pixel.png"
-dest_files=[ "res://.import/pixel.png-f9b3b2dcbe71c02dd006de2c58715b4e.stex" ]
+source_file="res://addons/tilemap_rect_manipulators/tmp.png"
+dest_files=[ "res://.import/tmp.png-771aafab82a103ec00a0796720e2fda3.stex" ]
 
 [params]
 
